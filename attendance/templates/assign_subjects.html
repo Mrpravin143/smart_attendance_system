@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Subject in Attendance</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+<div class="container">
+    <h2 class="mb-4">🔄 Update Subject in Attendance</h2>
+
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-md-5">
+                <label>From Subject</label>
+                <select name="from_subject" class="form-control" required>
+                    <option value="">-- Select Old Subject --</option>
+                    {% for subj in subjects %}
+                        <option value="{{ subj.id }}">{{ subj.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-5">
+                <label>To Subject</label>
+                <select name="to_subject" class="form-control" required>
+                    <option value="">-- Select New Subject --</option>
+                    {% for subj in subjects %}
+                        <option value="{{ subj.id }}">{{ subj.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+                <button type="submit" class="btn btn-warning w-100">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore Virtual Env
+env/
+venv/
+
+# Ignore database file
+db.sqlite3
+
+# Ignore system files
+*.log
+*.DS_Store
+
+# Ignore media/static if needed
+/media/
+staticfiles/
+
+# VSCode related
+.vscode/
